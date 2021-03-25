@@ -38,7 +38,7 @@ export class AppComponent {
 
     sorting: string = 'string';
 
-    sortData(param: string): void {
+    onSorting(param: string): void {
       this.sorting = param;
        }
 
