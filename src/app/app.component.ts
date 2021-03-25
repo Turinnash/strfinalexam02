@@ -17,4 +17,34 @@ export class AppComponent {
   constructor(
     private todoService: TodoService,
   ) {}
+
+
+  onDelete(todo: Todo): void{
+    this.todoService.delete(todo).subscribe(
+      ()=> this.todos$=this.todoService.getAll()
+    )
+    }
+  onCreate(todo: Todo): void{
+    this.todoService.create(todo).subscribe(
+    ()=> console.log("Done")
+      )
+    }
+    onUpdate(todo: Todo): void{
+      todo.active=!todo.active;
+      this.todoService.update(todo).subscribe(
+        ()=> console.log("Updated")
+      )
+    }
+
+    sorting: string = 'string';
+
+    sortData(param: string): void {
+      this.sorting = param;
+       }
+
+    phrase: string = '';
+
+    
+
+ 
 }
